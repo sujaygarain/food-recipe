@@ -33,7 +33,7 @@ export default function Details() {
 
   return (
     <div className="container mx-auto py-10 grid grid-cols-1 lg:grid-cols-2 gap-10">
-      <div className="row-start-2 lg:row-start-auto">
+      <div className="order-last lg:order-first">
         <div className="h-96 overflow-hidden rounded-xl">
           <img
             src={recipeDetailsData.image_url}
@@ -42,16 +42,16 @@ export default function Details() {
           />
         </div>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-4">
         <span className="text-sm text-cyan-700 font-medium">
           {recipeDetailsData.publisher}
         </span>
-        <h3 className="font-bold text-2xl truncate text-black">
+        <h3 className="font-bold text-2xl text-black">
           {recipeDetailsData.title}
         </h3>
         <button
           onClick={() => handleAddToFavorite(recipeDetailsData)}
-          className="p-3 px-8 rounded-lg text-sm uppercase font-medium tracking-wider mt-3 shadow-md bg-black text-white"
+          className="p-3 px-8 rounded-lg text-sm uppercase font-medium tracking-wider shadow-md bg-black text-white"
         >
           {favoritesList.some((item) => item.id === recipeDetailsData.id)
             ? "Remove from Favorites"
